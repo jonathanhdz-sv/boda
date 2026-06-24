@@ -10,7 +10,7 @@
         :root {
             --bg: #F9F6F0;
             --dark: #4A5342;
-            --sage: #9CAF88;
+            --sage: #7B8A6A;
             --gold: #C9A96E;
             --white: #FFF;
         }
@@ -64,7 +64,7 @@
         .intro-sub {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic; font-size: 1.1rem;
-            color: rgba(249,246,240,.55); margin-bottom: 2.5rem;
+            color: rgba(249,246,240,.55); margin: 1.8rem 0 2.5rem;
         }
         .intro-btn {
             background: transparent; color: var(--bg);
@@ -421,7 +421,7 @@
         function confetti(e) {
             const r = e.currentTarget.getBoundingClientRect();
             const cx = r.left + r.width/2, cy = r.top + r.height/2;
-            const colors = ['#C9A96E','#9CAF88','#D4DDCC','#4A5342','#A9B89B','#F9F6F0'];
+            const colors = ['#C9A96E','#7B8A6A','#D4DDCC','#4A5342','#A9B89B','#F9F6F0'];
             for (let i=0; i<30; i++) {
                 const p = document.createElement('div'); p.className='confetti';
                 const s = Math.random()*9+4, a = Math.random()*Math.PI*2, v = Math.random()*70+30;
@@ -435,7 +435,7 @@
         function startLeaves() { for (let i=0; i<12; i++) makeLeaf(); }
         function makeLeaf() {
             const l = document.createElement('div'); l.className='leaf';
-            l.innerHTML = `<svg width="22" height="22" viewBox="0 0 100 100"><path d="M10 90 Q40 80,80 10 Q50 50,10 90Z" fill="#9CAF88" opacity="${Math.random()*.3+.2}"/></svg>`;
+            l.innerHTML = `<svg width="22" height="22" viewBox="0 0 100 100"><path d="M10 90 Q40 80,80 10 Q50 50,10 90Z" fill="#7B8A6A" opacity="${Math.random()*.3+.2}"/></svg>`;
             l.style.left = Math.random()*100+'vw'; l.style.top = '-10px';
             const s = Math.random()*16+10; l.style.width = s+'px'; l.style.height = s+'px';
             l.style.animationDuration = Math.random()*10+8+'s';
