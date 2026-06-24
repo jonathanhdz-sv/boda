@@ -396,16 +396,15 @@
             ytPlayer = new YT.Player('yt-player', {
                 videoId: '2nelr_KY35k',
                 playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: '2nelr_KY35k', start: 4 },
-                events: { onReady: () => { ytPlayer.setVolume(28); } }
+                events: { onReady: () => { ytPlayer.setVolume(23); } }
             });
         }
 
         function openInvitation() {
             document.getElementById('intro-overlay').classList.add('fade-out');
-            setTimeout(() => {
-                mBtn.style.display = 'flex';
-                if (ytPlayer) { ytPlayer.playVideo(); playing = true; mIcon.classList.add('playing'); }
-            }, 1000);
+            // Música inmediata
+            mBtn.style.display = 'flex';
+            if (ytPlayer) { ytPlayer.playVideo(); playing = true; mIcon.classList.add('playing'); }
             startLeaves();
         }
 
