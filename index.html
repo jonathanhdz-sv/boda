@@ -131,7 +131,7 @@
             margin: .1rem 0 .3rem;
         }
         .hdr-date {
-            font-size: .7rem; font-weight: 400;
+            font-size: .82rem; font-weight: 400;
             letter-spacing: 4px; text-transform: uppercase;
             color: var(--sage); margin-top: 1rem;
         }
@@ -149,14 +149,14 @@
             color: var(--dark); margin-bottom: .6rem;
         }
         .up-desc {
-            font-size: .82rem; color: var(--sage);
+            font-size: .9rem; color: var(--sage);
             margin-bottom: 2rem; font-weight: 400;
         }
         .up-btn {
             display: inline-block; text-decoration: none;
             background: var(--dark); color: var(--bg);
             padding: 1rem 2.4rem;
-            font-size: .82rem; font-weight: 400;
+            font-size: .9rem; font-weight: 400;
             letter-spacing: 3px; text-transform: uppercase;
             transition: all .4s ease;
             box-shadow: 0 4px 20px rgba(74,83,66,.15);
@@ -167,7 +167,7 @@
             box-shadow: 0 6px 28px rgba(74,83,66,.25);
         }
         .up-hint {
-            font-size: .65rem; color: var(--sage);
+            font-size: .75rem; color: var(--sage);
             margin-top: .8rem; letter-spacing: 2px;
         }
         .up-steps {
@@ -182,7 +182,7 @@
             margin-bottom: .2rem;
         }
         .up-step-txt {
-            font-size: .68rem; color: var(--sage);
+            font-size: .78rem; color: var(--sage);
             font-weight: 400;
         }
 
@@ -243,16 +243,16 @@
             color: var(--dark); margin-bottom: .1rem;
         }
         .ftr-date {
-            font-size: .7rem; letter-spacing: 3px;
+            font-size: .8rem; letter-spacing: 3px;
             text-transform: uppercase; color: var(--sage);
             margin-bottom: 1rem;
         }
         .ftr-love {
-            font-size: .65rem; color: var(--gold);
+            font-size: .75rem; color: var(--gold);
             letter-spacing: 2px; text-transform: uppercase;
         }
         .ftr-rights {
-            font-size: .6rem; color: var(--sage);
+            font-size: .7rem; color: var(--sage);
             margin-top: 1rem; opacity: .5;
         }
 
@@ -432,12 +432,12 @@
         }
 
         // HOJAS
-        function startLeaves() { for (let i=0; i<12; i++) makeLeaf(); }
+        function startLeaves() { for (let i=0; i<25; i++) makeLeaf(); }
         function makeLeaf() {
             const l = document.createElement('div'); l.className='leaf';
-            l.innerHTML = `<svg width="22" height="22" viewBox="0 0 100 100"><path d="M10 90 Q40 80,80 10 Q50 50,10 90Z" fill="#7B8A6A" opacity="${Math.random()*.3+.2}"/></svg>`;
+            l.innerHTML = `<svg width="22" height="22" viewBox="0 0 100 100"><path d="M10 90 Q40 80,80 10 Q50 50,10 90Z" fill="#7B8A6A" opacity="${Math.random()*.35+.3}"/></svg>`;
             l.style.left = Math.random()*100+'vw'; l.style.top = '-10px';
-            const s = Math.random()*16+10; l.style.width = s+'px'; l.style.height = s+'px';
+            const s = Math.random()*20+14; l.style.width = s+'px'; l.style.height = s+'px';
             l.style.animationDuration = Math.random()*10+8+'s';
             l.style.animationDelay = Math.random()*5+'s';
             document.body.appendChild(l);

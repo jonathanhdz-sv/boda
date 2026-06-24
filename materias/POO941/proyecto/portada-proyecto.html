@@ -1,0 +1,142 @@
+<html>
+<head><meta charset="UTF-8"><title>Proyecto POO Fase 2</title>
+<style>
+body{font-family:Arial;max-width:800px;margin:20px auto;color:#333}
+h1{color:#003366;text-align:center;border-bottom:3px solid #003366;padding-bottom:10px}
+h2{color:#003366;border-bottom:2px solid #003366;margin-top:25px}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th{background:#003366;color:white;padding:10px;text-align:left}
+td{padding:8px;border-bottom:1px solid #ddd}
+tr:hover{background:#f0f0f0}
+.center{text-align:center}
+</style></head>
+<body>
+
+<h1>PROYECTO FINAL FASE 2 - APLICACION WEB</h1>
+
+<table>
+<tr><th>Materia</th><td>Programacion Orientada a Objetos (POO941)</td></tr>
+<tr><th>Carrera</th><td>Ingenieria en Ciencias de la Computacion</td></tr>
+<tr><th>Universidad</th><td>Universidad Don Bosco (UDB Virtual)</td></tr>
+<tr><th>Plan</th><td>2024</td></tr>
+<tr><th>Ciclo</th><td>01-2026</td></tr>
+<tr><th>Fecha de Entrega</th><td>31 de mayo de 2026</td></tr>
+</table>
+
+<h2>INTEGRANTES</h2>
+
+<table>
+<tr><th>Nombre</th><th>Carnet</th></tr>
+<tr><td>Yoselyn Aguilar</td><td>AR253073</td></tr>
+<tr><td>Jhensen Recinos</td><td>RA251889</td></tr>
+<tr><td>Jonathan Hernandez</td><td>HG253460</td></tr>
+<tr><td>Rubel Andrade</td><td>AC251900</td></tr>
+</table>
+
+<h2>DESCRIPCION DEL PROYECTO</h2>
+
+<p>Sistema web para la administracion de la Biblioteca del Colegio Amigos De Don Bosco. Permite gestionar usuarios, libros y prestamos. Incluye catalogo publico sin login, modulo de administracion para encargados y modulo de prestamos para alumnos y profesores con calculo automatico de mora.</p>
+
+<p style="background:#e3f2fd;padding:15px;border-radius:5px;border-left:4px solid #003366">
+Antes: cuadernos, papeles perdidos, no se sabe quien tiene cada libro. 
+Ahora: todo digital, desde cualquier lugar, en segundos.
+</p>
+
+<h2>TECNOLOGIAS UTILIZADAS</h2>
+
+<table>
+<tr><th>Tecnologia</th><th>Uso</th></tr>
+<tr><td>Java 17</td><td>Lenguaje de programacion</td></tr>
+<tr><td>Apache NetBeans 29</td><td>IDE de desarrollo</td></tr>
+<tr><td>Apache Tomcat 10</td><td>Servidor de aplicaciones web</td></tr>
+<tr><td>MySQL 8.4</td><td>Base de datos relacional</td></tr>
+<tr><td>JDBC</td><td>Conector Java-MySQL</td></tr>
+<tr><td>Pool de Conexiones</td><td>Gestion eficiente de conexiones a BD</td></tr>
+<tr><td>Maven</td><td>Gestion de dependencias y construccion</td></tr>
+<tr><td>HTML5 + CSS3</td><td>Interfaz de usuario web</td></tr>
+<tr><td>JSP (JavaServer Pages)</td><td>Vistas dinamicas del sistema</td></tr>
+<tr><td>Servlets</td><td>Controladores de peticiones HTTP</td></tr>
+<tr><td>Java Beans</td><td>Modelo de datos del sistema</td></tr>
+<tr><td>Arquitectura MVC</td><td>Modelo-Vista-Controlador</td></tr>
+</table>
+
+<h2>MODULOS DEL SISTEMA</h2>
+
+<table>
+<tr><th>Modulo</th><th>Acceso</th><th>Funcionalidades</th></tr>
+<tr><td>Encargados</td><td>Login protegido (Administrador)</td><td>Gestion de usuarios (CRUD), gestion de libros (CRUD), registro y devolucion de prestamos, calculo automatico de mora</td></tr>
+<tr><td>Consultas</td><td>Publico (sin login)</td><td>Busqueda de libros por titulo, autor, tipo e idioma</td></tr>
+<tr><td>Prestamos Web</td><td>Alumnos y Profesores</td><td>Solicitar libros en linea, ver mis prestamos activos, devolver libros, consultar mora pendiente</td></tr>
+</table>
+
+<h2>REGLAS DE NEGOCIO</h2>
+
+<table>
+<tr><th>Regla</th><th>Alumno</th><th>Profesor</th></tr>
+<tr><td>Maximo de libros</td><td class="center">3</td><td class="center">6</td></tr>
+<tr><td>Dias de prestamo sin recargo</td><td class="center">7</td><td class="center">14</td></tr>
+<tr><td>Mora por dia de atraso</td><td class="center" colspan="2">$1.10</td></tr>
+</table>
+
+<h2>ESTRUCTURA DEL PROYECTO</h2>
+
+<table>
+<tr><th>Capa</th><th>Arquitectura</th><th>Archivos</th></tr>
+<tr><td>Modelo</td><td>Java Beans</td><td>Usuario.java, Libro.java, Prestamo.java</td></tr>
+<tr><td>DAO</td><td>Acceso a Datos</td><td>ConexionBD.java, UsuarioDAO.java, LibroDAO.java, PrestamoDAO.java</td></tr>
+<tr><td>Controlador</td><td>Servlets</td><td>LoginServlet.java, UsuarioServlet.java, LibroServlet.java, PrestamoServlet.java, CatalogoServlet.java</td></tr>
+<tr><td>Vista</td><td>JSP</td><td>login.jsp, menu.jsp, catalogo.jsp, usuarios_lista.jsp, usuario_form.jsp, libros_lista.jsp, libro_form.jsp, prestamos_lista.jsp, prestamo_form.jsp, prestamo_solicitar.jsp, mis_prestamos.jsp</td></tr>
+</table>
+
+<h2>BASE DE DATOS</h2>
+
+<table>
+<tr><th>Tabla</th><th>Campos</th></tr>
+<tr><td>usuarios</td><td>id, nombre, carnet, password, rol</td></tr>
+<tr><td>libros</td><td>id, codigo, titulo, autor, editorial, isbn, anio, tipo, idioma, unidades</td></tr>
+<tr><td>prestamos</td><td>id, id_usuario, id_libro, fecha_prestamo, fecha_devolucion, fecha_devuelto, mora, estado</td></tr>
+<tr><td>configuracion</td><td>id, max_prestamos_alumno, max_prestamos_profesor, dias_prestamo_alumno, dias_prestamo_profesor, mora_diaria</td></tr>
+</table>
+
+<h2>RUBRICA DE EVALUACION</h2>
+
+<table>
+<tr><th>Criterio</th><th class="center">Peso</th><th>Estado</th></tr>
+<tr><td>Capa de datos y validaciones web</td><td class="center">10%</td><td>Cumplido</td></tr>
+<tr><td>Logica de negocio migrada a entorno web</td><td class="center">40%</td><td>Cumplido</td></tr>
+<tr><td>Interfaz de usuario web atractiva</td><td class="center">20%</td><td>Cumplido</td></tr>
+<tr><td>Pool de conexiones en Apache Tomcat</td><td class="center">15%</td><td>Cumplido</td></tr>
+<tr><td>Deploy exitoso del proyecto en Tomcat</td><td class="center">15%</td><td>Cumplido</td></tr>
+</table>
+
+<h2>CREDENCIALES DE ACCESO</h2>
+
+<table>
+<tr><th>Rol</th><th>Nombre</th><th>Carnet</th><th>Password</th></tr>
+<tr><td>Administrador</td><td>Jonathan Hernandez</td><td>HG253460</td><td>1234</td></tr>
+<tr><td>Administrador</td><td>Yoselyn Aguilar</td><td>AR253073</td><td>1234</td></tr>
+<tr><td>Administrador</td><td>Jhensen Recinos</td><td>RA251889</td><td>1234</td></tr>
+<tr><td>Administrador</td><td>Rubel Andrade</td><td>AC251900</td><td>1234</td></tr>
+<tr><td>Alumno</td><td>Oscar Martinez</td><td>MA365018</td><td>1234</td></tr>
+<tr><td>Alumno</td><td>Andrea Ramirez</td><td>RA129574</td><td>1234</td></tr>
+<tr><td>Profesor</td><td>Ricardo Gomez</td><td>GO528630</td><td>1234</td></tr>
+</table>
+
+<h2>CATALOGO DE LIBROS</h2>
+
+<table>
+<tr><th>Codigo</th><th>Titulo</th><th>Autor</th><th>Tipo</th></tr>
+<tr><td>LIB00001</td><td>English Grammar in Use</td><td>Raymond Murphy</td><td>Idioma</td></tr>
+<tr><td>LIB00002</td><td>Grammaire Progressive du Francais</td><td>Maia Gregoire</td><td>Idioma</td></tr>
+<tr><td>LIB00003</td><td>Cien Anios de Soledad</td><td>Gabriel Garcia Marquez</td><td>Novela</td></tr>
+<tr><td>LIB00004</td><td>Don Quijote de la Mancha</td><td>Miguel de Cervantes</td><td>Novela</td></tr>
+<tr><td>LIB00005</td><td>Orgullo y Prejuicio</td><td>Jane Austen</td><td>Novela</td></tr>
+<tr><td>LIB00006</td><td>Crimen y Castigo</td><td>Fiodor Dostoievski</td><td>Novela</td></tr>
+<tr><td>LIB00007</td><td>Quimica General</td><td>Raymond Chang</td><td>Quimica</td></tr>
+<tr><td>LIB00008</td><td>Quimica Organica</td><td>John McMurry</td><td>Quimica</td></tr>
+<tr><td>LIB00009</td><td>Principios de Quimica</td><td>Peter Atkins</td><td>Quimica</td></tr>
+<tr><td>LIB00010</td><td>Algebra de Baldor</td><td>Aurelio Baldor</td><td>Matematica</td></tr>
+</table>
+
+</body>
+</html>
