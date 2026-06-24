@@ -472,9 +472,9 @@
                 p.innerHTML = `<svg width="16" height="16" viewBox="0 0 60 60"><ellipse cx="30" cy="30" rx="24" ry="15" fill="#F9F6F0" opacity="${Math.random()*.35+.2}" transform="rotate(${Math.random()*50-25} 30 30)"/></svg>`;
             }
             p.style.left = Math.random()*100+'vw'; p.style.top = '-15px';
-            const s = Math.random()*22+12; p.style.width = s+'px'; p.style.height = s+'px';
-            p.style.animationDuration = Math.random()*14+12+'s';
-            p.style.animationDelay = Math.random()*8+'s';
+            const s = Math.random()*30+18; p.style.width = s+'px'; p.style.height = s+'px';
+            p.style.animationDuration = Math.random()*20+18+'s';
+            p.style.animationDelay = Math.random()*10+'s';
             document.body.appendChild(p);
             p.addEventListener('animationend', ()=>{ p.remove(); makeParticle(); });
         }
