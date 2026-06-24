@@ -33,46 +33,16 @@
             transition: width .1s linear;
         }
 
-        /* ═══ INTRO - SOBRE ═══ */
+        /* ═══ INTRO ═══ */
         #intro-overlay {
             position: fixed; inset: 0; z-index: 9999;
             background: var(--dark);
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
             text-align: center; padding: 2rem;
-            perspective: 800px;
-            transition: transform 1.2s cubic-bezier(.77,0,.175,1), opacity .8s ease;
+            transition: transform 1.5s cubic-bezier(.77,0,.175,1), opacity 1.5s ease;
         }
         #intro-overlay.fade-out { transform: translateY(-100%); opacity: 0; pointer-events: none; }
-
-        /* Solapa del sobre */
-        .env-flap {
-            position: absolute; top: 0; left: 0; right: 0;
-            height: 50vh;
-            background: linear-gradient(180deg, #3a4232 0%, var(--dark) 100%);
-            transition: transform .7s cubic-bezier(.4,0,.2,1);
-            z-index: 10;
-            box-shadow: 0 2px 20px rgba(0,0,0,.3);
-        }
-        .env-flap.open { transform: translateY(-105%); }
-
-        /* Línea de pliegue del sobre */
-        .env-fold {
-            position: absolute; top: 48vh; left: 10%; right: 10%;
-            height: 0;
-            border-top: 1px dashed rgba(201,169,110,.15);
-            z-index: 11;
-            pointer-events: none;
-        }
-
-        .env-content {
-            position: relative; z-index: 5;
-            margin-top: 48vh;
-            display: flex; flex-direction: column;
-            align-items: center;
-            flex: 1;
-            justify-content: center;
-        }
 
         .intro-n1, .intro-n2 {
             font-family: 'Cormorant Garamond', serif;
@@ -329,17 +299,13 @@
 
     <div id="progress-bar"></div>
 
-    <!-- ═══ INTRO - SOBRE ═══ -->
+    <!-- ═══ INTRO ═══ -->
     <div id="intro-overlay">
-        <div class="env-flap" id="env-flap"></div>
-        <div class="env-fold"></div>
-        <div class="env-content">
-            <h1 class="intro-n1">Alcides</h1>
-            <span class="intro-amp">&amp;</span>
-            <h1 class="intro-n2">Sindy</h1>
-            <p class="intro-sub">Bienvenidos a nuestra historia</p>
-        </div>
-        <button class="intro-btn" onclick="openInvitation()" style="position:relative;z-index:20;">Abrir Invitación</button>
+        <h1 class="intro-n1">Alcides</h1>
+        <span class="intro-amp">&amp;</span>
+        <h1 class="intro-n2">Sindy</h1>
+        <p class="intro-sub">Bienvenidos a nuestra historia</p>
+        <button class="intro-btn" onclick="openInvitation()">Abrir Invitación</button>
     </div>
 
     <!-- MÚSICA -->
@@ -426,20 +392,12 @@
         let playing = false;
 
         function openInvitation() {
-            const btn = document.querySelector('.intro-btn');
-            btn.style.pointerEvents = 'none'; btn.style.opacity = '0';
-            // 1. Abrir la solapa del sobre
-            document.getElementById('env-flap').classList.add('open');
-            // 2. Esperar que termine la animación y revelar el contenido
-            setTimeout(() => {
-                document.getElementById('intro-overlay').classList.add('fade-out');
-            }, 900);
-            // 3. Iniciar música y hojas
+            document.getElementById('intro-overlay').classList.add('fade-out');
             setTimeout(() => {
                 mBtn.style.display = 'flex';
                 audio.play().then(() => { playing = true; mIcon.classList.add('playing'); }).catch(()=>{});
-                startLeaves();
-            }, 1800);
+            }, 1000);
+            startLeaves();
         }
 
         function toggleMusic() {
