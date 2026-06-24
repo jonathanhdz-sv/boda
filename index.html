@@ -76,20 +76,6 @@
         }
         .intro-btn:hover { background: var(--gold); color: var(--dark); }
 
-        /* ── MÚSICA ── */
-        .music-btn {
-            position: fixed; top: 20px; right: 20px; z-index: 1000;
-            width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(249,246,240,.85);
-            border: 1px solid rgba(201,169,110,.25);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 1rem; color: var(--dark);
-            transition: all .3s ease;
-        }
-        .music-btn:hover { transform: scale(1.1); }
-        .music-icon.playing { animation: spin 6s linear infinite; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
         /* ── HOJAS ── */
         .leaf {
             position: fixed; pointer-events: none; z-index: 999;
@@ -308,15 +294,10 @@
         <button class="intro-btn" onclick="openInvitation()">Abrir Invitación</button>
     </div>
 
-    <!-- MÚSICA -->
-    <div class="music-btn" onclick="toggleMusic()" id="music-btn" style="display:none;">
-        <span class="music-icon" id="music-icon">&#9835;</span>
-    </div>
-    <audio id="bg-audio" loop>
-        <source src="boda-musica.mp3" type="audio/mp3">
-    </audio>
-
     <!-- VOLVER ARRIBA -->
+    <div id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
+    <div class="page">
     <div id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
 
     <!-- ═══ CONTENIDO ═══ -->
@@ -356,7 +337,7 @@
 
             <p>Hay días que se graban en la memoria, pero días como hoy se tatúan directamente en el alma. Al mirar a nuestro alrededor y ver cada uno de sus rostros, entendemos que el amor no es un camino que se recorre en soledad, sino un paisaje hermoso que se construye con las personas que le dan sentido a nuestras vidas.</p>
 
-            <p>Hoy el corazón se nos desborda de gratitud. Disfruten, sonrían, sientan la música y dejen que la magia de esta noche los envuelva, porque esta fiesta es, por y para ustedes.</p>
+            <p>Hoy el corazón se nos desborda de gratitud. Disfruten, sonrían y dejen que la magia de este día los envuelva, porque esta fiesta es, por y para ustedes.</p>
 
             <p class="closing">
                 Con el corazón desbordante de gratitud y una felicidad que nos acompañará siempre…
@@ -386,23 +367,9 @@
     </div>
 
     <script>
-        const audio = document.getElementById('bg-audio');
-        const mBtn = document.getElementById('music-btn');
-        const mIcon = document.getElementById('music-icon');
-        let playing = false;
-
         function openInvitation() {
             document.getElementById('intro-overlay').classList.add('fade-out');
-            setTimeout(() => {
-                mBtn.style.display = 'flex';
-                audio.play().then(() => { playing = true; mIcon.classList.add('playing'); }).catch(()=>{});
-            }, 1000);
             startLeaves();
-        }
-
-        function toggleMusic() {
-            if (playing) { audio.pause(); mIcon.classList.remove('playing'); mIcon.textContent = '\u266C'; playing = false; }
-            else { audio.play(); mIcon.classList.add('playing'); mIcon.textContent = '\u266B'; playing = true; }
         }
 
         // PROGRESS BAR
