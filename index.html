@@ -187,10 +187,33 @@
         }
 
         /* ── FOTO ── */
-        .photo { margin-bottom: 4.5rem; }
+        .photo {
+            margin-bottom: 4.5rem;
+            position: relative;
+            padding: 10px;
+            background: var(--white);
+            box-shadow: 0 6px 30px rgba(74,83,66,.1),
+                        0 0 0 3px var(--sage),
+                        0 0 0 5px rgba(201,169,110,.25);
+        }
+        .photo::before {
+            content: "❦";
+            position: absolute;
+            top: -16px; left: 50%; transform: translateX(-50%);
+            color: var(--gold); font-size: 1rem;
+            background: var(--white); padding: 0 6px;
+            z-index: 2;
+        }
+        .photo::after {
+            content: "❦";
+            position: absolute;
+            bottom: -16px; left: 50%; transform: translateX(-50%);
+            color: var(--gold); font-size: 1rem;
+            background: var(--white); padding: 0 6px;
+            z-index: 2;
+        }
         .photo img {
             width: 100%; display: block; object-fit: cover;
-            border: 1px solid rgba(201,169,110,.15);
         }
 
         /* ── TEXTO ── */
