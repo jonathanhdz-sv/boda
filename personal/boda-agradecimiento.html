@@ -398,6 +398,7 @@
             document.getElementById('intro-overlay').classList.add('fade-out');
             setTimeout(() => {
                 mBtn.style.display = 'flex';
+                audio.volume = 0.35;
                 audio.play().then(() => { playing = true; mIcon.classList.add('playing'); }).catch(()=>{});
             }, 1000);
             startLeaves();
@@ -405,7 +406,7 @@
 
         function toggleMusic() {
             if (playing) { audio.pause(); mIcon.classList.remove('playing'); mIcon.textContent = '\u266C'; playing = false; }
-            else { audio.play(); mIcon.classList.add('playing'); mIcon.textContent = '\u266B'; playing = true; }
+            else { audio.volume = 0.35; audio.play(); mIcon.classList.add('playing'); mIcon.textContent = '\u266B'; playing = true; }
         }
 
         // PROGRESS BAR
