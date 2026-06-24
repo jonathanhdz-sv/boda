@@ -314,13 +314,11 @@
         <button class="intro-btn" onclick="openInvitation()">Abrir Invitación</button>
     </div>
 
-    <!-- MÚSICA -->
+    <!-- MÚSICA (YouTube) -->
     <div class="music-btn" onclick="toggleMusic()" id="music-btn" style="display:none;">
         <span class="music-icon" id="music-icon">&#9835;</span>
     </div>
-    <audio id="bg-audio" loop preload="auto">
-        <source src="https://jonathanhdz-sv.github.io/boda/boda-musica.mp3" type="audio/mp3">
-    </audio>
+    <div id="yt-player" style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;"></div>
 
     <!-- VOLVER ARRIBA -->
     <div id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
@@ -391,23 +389,40 @@
     </div>
 
     <script>
-        const audio = document.getElementById('bg-audio');
+        // YOUTUBE
+        let ytPlayer, playing = false;
         const mBtn = document.getElementById('music-btn');
         const mIcon = document.getElementById('music-icon');
-        let playing = false;
-        audio.volume = 0.35;
+
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('yt-player', {
+                videoId: '2nelr_KY35k',
+                playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: '2nelr_KY35k', start: 4 },
+                events: { onReady: () => { ytPlayer.setVolume(35); ytPlayer.cueVideoById({videoId:'2nelr_KY35k', startSeconds:4}); } }
+            });
+        }
 
         function openInvitation() {
             document.getElementById('intro-overlay').classList.add('fade-out');
             mBtn.style.display = 'flex';
-            audio.play().then(() => { playing = true; mIcon.classList.add('playing'); }).catch(()=>{});
+            if (ytPlayer) { ytPlayer.playVideo(); playing = true; mIcon.classList.add('playing'); }
             startLeaves();
         }
 
         function toggleMusic() {
-            if (playing) { audio.pause(); mIcon.classList.remove('playing'); mIcon.textContent = '\u266C'; playing = false; }
-            else { audio.play(); mIcon.classList.add('playing'); mIcon.textContent = '\u266B'; playing = true; }
+            if (!ytPlayer) return;
+            if (playing) {
+                ytPlayer.pauseVideo(); mIcon.classList.remove('playing');
+                mIcon.textContent = '\u266C'; playing = false;
+            } else {
+                ytPlayer.playVideo(); mIcon.classList.add('playing');
+                mIcon.textContent = '\u266B'; playing = true;
+            }
         }
+
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
 
         // PROGRESS BAR
         window.addEventListener('scroll', () => {
