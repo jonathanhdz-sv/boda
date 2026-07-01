@@ -460,16 +460,16 @@
             const p = document.createElement('div'); p.className='leaf';
             const type = Math.random();
             if (type < .5) {
-                // Hoja de olivo
-                p.innerHTML = `<svg width="28" height="28" viewBox="0 0 100 100"><path d="M10 90 Q40 80,80 10 Q50 50,10 90Z" fill="#7B8A6A" opacity="${Math.random()*.3+.25}"/></svg>`;
+                // Pétalo verde
+                p.innerHTML = `<svg width="28" height="28" viewBox="0 0 40 60"><path d="M20 0 Q30 20,28 40 Q25 55,20 60 Q15 55,12 40 Q10 20,20 0Z" fill="#7B8A6A" opacity="${Math.random()*.3+.25}"/></svg>`;
             } else if (type < .85) {
                 // Pétalo dorado
                 const golds = ['#C9A96E','#D4AF37','#E8D5A3'];
                 const c = golds[Math.floor(Math.random()*3)];
-                p.innerHTML = `<svg width="24" height="24" viewBox="0 0 60 60"><ellipse cx="30" cy="30" rx="28" ry="18" fill="${c}" opacity="${Math.random()*.4+.25}" transform="rotate(${Math.random()*40-20} 30 30)"/></svg>`;
+                p.innerHTML = `<svg width="24" height="24" viewBox="0 0 40 60"><path d="M20 0 Q30 20,28 40 Q25 55,20 60 Q15 55,12 40 Q10 20,20 0Z" fill="${c}" opacity="${Math.random()*.4+.25}"/></svg>`;
             } else {
                 // Pétalo crema
-                p.innerHTML = `<svg width="20" height="20" viewBox="0 0 60 60"><ellipse cx="30" cy="30" rx="24" ry="15" fill="#F9F6F0" opacity="${Math.random()*.35+.2}" transform="rotate(${Math.random()*50-25} 30 30)"/></svg>`;
+                p.innerHTML = `<svg width="20" height="20" viewBox="0 0 40 60"><path d="M20 0 Q30 20,28 40 Q25 55,20 60 Q15 55,12 40 Q10 20,20 0Z" fill="#F9F6F0" opacity="${Math.random()*.35+.2}"/></svg>`;
             }
             p.style.left = Math.random()*100+'vw'; p.style.top = '-15px';
             const s = Math.random()*40+22; p.style.width = s+'px'; p.style.height = s+'px';
