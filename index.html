@@ -455,7 +455,7 @@
         }
 
         // HOJAS
-        function startLeaves() { for (let i=0; i<30; i++) makeParticle(); }
+        function startLeaves() { for (let i=0; i<30; i++) setTimeout(makeParticle, i*400); }
         function makeParticle() {
             const p = document.createElement('div'); p.className='leaf';
             const type = Math.random();
