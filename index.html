@@ -460,16 +460,14 @@
             const p = document.createElement('div'); p.className='leaf';
             const type = Math.random();
             if (type < .5) {
-                // Pétalo verde
-                p.innerHTML = `<svg width="28" height="28" viewBox="0 0 40 60"><path d="M20 0 Q30 20,28 40 Q25 55,20 60 Q15 55,12 40 Q10 20,20 0Z" fill="#7B8A6A" opacity="${Math.random()*.3+.25}"/></svg>`;
+                // Pétalo blanco
+                p.innerHTML = `<svg width="28" height="28" viewBox="0 0 40 60"><path d="M20 0 Q30 20,28 40 Q25 55,20 60 Q15 55,12 40 Q10 20,20 0Z" fill="#FFF" opacity="${Math.random()*.35+.25}"/></svg>`;
             } else if (type < .85) {
-                // Pétalo dorado
-                const golds = ['#C9A96E','#D4AF37','#E8D5A3'];
-                const c = golds[Math.floor(Math.random()*3)];
-                p.innerHTML = `<svg width="24" height="24" viewBox="0 0 40 60"><path d="M20 0 Q30 20,28 40 Q25 55,20 60 Q15 55,12 40 Q10 20,20 0Z" fill="${c}" opacity="${Math.random()*.4+.25}"/></svg>`;
+                // Pétalo blanco marfil
+                p.innerHTML = `<svg width="24" height="24" viewBox="0 0 40 60"><path d="M20 0 Q30 20,28 40 Q25 55,20 60 Q15 55,12 40 Q10 20,20 0Z" fill="#F9F6F0" opacity="${Math.random()*.4+.25}"/></svg>`;
             } else {
-                // Pétalo crema
-                p.innerHTML = `<svg width="20" height="20" viewBox="0 0 40 60"><path d="M20 0 Q30 20,28 40 Q25 55,20 60 Q15 55,12 40 Q10 20,20 0Z" fill="#F9F6F0" opacity="${Math.random()*.35+.2}"/></svg>`;
+                // Pétalo blanco suave
+                p.innerHTML = `<svg width="20" height="20" viewBox="0 0 40 60"><path d="M20 0 Q30 20,28 40 Q25 55,20 60 Q15 55,12 40 Q10 20,20 0Z" fill="#FAF8F5" opacity="${Math.random()*.35+.2}"/></svg>`;
             }
             p.style.left = Math.random()*100+'vw'; p.style.top = '-15px';
             const s = Math.random()*40+22; p.style.width = s+'px'; p.style.height = s+'px';
